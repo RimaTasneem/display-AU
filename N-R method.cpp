@@ -2,10 +2,8 @@
 #include <math.h>
 
 int main() {
-    double n, a, r, f, fprime, error, epsilon;
+    double  a, r, f, fprime, error, epsilon;
     int i, N;
-    printf("Enter the number to find cube root: ");
-    scanf("%lf", &n);
 
     printf("Enter initial guess: ");
     scanf("%lf", &a);
@@ -20,8 +18,8 @@ int main() {
     error = 100000; 
 
     while (error >= epsilon && i <= N) {
-        f = a * a * a - n;      
-        fprime = 3 * a * a;    
+        f = pow(a, 1/3);
+        fprime = pow(a, (-(2/3)));    
 
         if (fprime == 0) {
             printf("Error: derivative is zero.\n");
@@ -38,7 +36,7 @@ int main() {
     if (i > N) {
         printf("Error: Method did not converge in %d iterations.\n", N);
     } else {
-        printf("Approximate cube root of %.4f = %.4f\n", n, r);
+        printf("Approximate root is = %.4f\n", r);
         printf("Iterations: %d\n", i);
     }
 
